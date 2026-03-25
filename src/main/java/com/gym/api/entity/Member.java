@@ -15,5 +15,5 @@ public class Member {
     private String email;
     private String address;
     private String phone;
-
+    private boolean active = false;
 }

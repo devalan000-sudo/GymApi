@@ -1,5 +1,6 @@
 package com.gym.api.entity;
 
+import com.gym.api.entity.enums.BookingStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,6 +19,6 @@ public class Booking {
     @ManyToOne
     @JoinColumn(name = "class_id")
     private GymClass classId;
-
-
+    @Enumerated(EnumType.STRING)
+    private BookingStatus bookingStatus;
 }
