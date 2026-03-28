@@ -20,14 +20,17 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-
+    @GetMapping("/active")
+    public ResponseEntity<List<MemberResponse>> listActiveMembers() {
+        return ResponseEntity.ok(memberService.findAllActiveMembers());
+    }
 
     @PostMapping
     public ResponseEntity<MemberResponse> createMember(@Valid @RequestBody MemberRequest memberRequest) {
         return ResponseEntity.ok(memberService.createMember(memberRequest));
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<MemberResponse> update (@PathVariable Long id, @Valid @RequestBody MemberRequest memberRequest) {
         return ResponseEntity.ok(memberService.updateMember(id, memberRequest));
     }
